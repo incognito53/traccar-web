@@ -158,6 +158,7 @@ const MainToolbar = ({
               <MenuItem value="">{'\u00a0'}</MenuItem>
               <MenuItem value="name">{t('sharedName')}</MenuItem>
               <MenuItem value="lastUpdate">{t('deviceLastUpdate')}</MenuItem>
+              <MenuItem value="speed">Speed &gt; Last Update</MenuItem>
             </Select>
           </FormControl>
           <FormGroup>

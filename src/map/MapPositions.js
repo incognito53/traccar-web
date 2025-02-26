@@ -41,7 +41,8 @@ const MapPositions = ({ positions, onClick, showStatus, selectedPosition, titleF
     return {
       id: position.id,
       deviceId: position.deviceId,
-      name: device.name,
+      name: position.speed > 0 ? `${device.name} ${(position.speed * 1.15).toFixed(0)}` : device.name,
+      speed: position.speed,
       fixTime: formatTime(position.fixTime, 'seconds'),
       category: mapIconKey(device.category),
       color: showStatus ? position.attributes.color || getStatusColor(device.status) : 'neutral',
@@ -108,16 +109,17 @@ const MapPositions = ({ positions, onClick, showStatus, selectedPosition, titleF
           'icon-image': '{category}-{color}',
           'icon-size': iconScale,
           'icon-allow-overlap': true,
+          'icon-rotate': ['get', 'rotation'],
           'text-field': `{${titleField || 'name'}}`,
           'text-allow-overlap': true,
           'text-anchor': 'bottom',
-          'text-offset': [0, -2 * iconScale],
+          'text-offset': [0, -1.5 * iconScale],
           'text-font': findFonts(map),
-          'text-size': 12,
+          'text-size': 14,
         },
         paint: {
           'text-halo-color': 'white',
-          'text-halo-width': 1,
+          'text-halo-width': 2,
         },
       });
       map.addLayer({
