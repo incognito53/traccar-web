@@ -41,7 +41,7 @@ const MapPositions = ({ positions, onClick, showStatus, selectedPosition, titleF
     return {
       id: position.id,
       deviceId: position.deviceId,
-      name: position.speed > 0 ? `${device.name} ${(position.speed * 1.15).toFixed(0)}` : device.name,
+      name: position.speed > 1 ? `${device.name} ${(position.speed * 1.15).toFixed(0)}` : device.name,
       speed: position.speed,
       fixTime: formatTime(position.fixTime, 'seconds'),
       category: mapIconKey(device.category),
@@ -106,7 +106,12 @@ const MapPositions = ({ positions, onClick, showStatus, selectedPosition, titleF
         source,
         filter: ['!has', 'point_count'],
         layout: {
-          'icon-image': '{category}-{color}',
+          // 'icon-image': '{category}-{color}',
+          'icon-image': [
+            'case',
+            ['>', ['get', 'speed'], 1], ['concat', 'arrow', '-', ['get', 'color']],
+            ['concat', ['get', 'category'], '-', ['get', 'color']],
+          ],
           'icon-size': iconScale,
           'icon-allow-overlap': true,
           'icon-rotate': ['get', 'rotation'],

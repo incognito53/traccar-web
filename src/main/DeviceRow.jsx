@@ -88,7 +88,7 @@ const DeviceRow = ({ data, index, style }) => {
         <ListItemAvatar>
           <Avatar>
             {position && (
-              position.speed > 0 ? (position.speed * 1.15).toFixed(0) : (
+              position.speed > 1 ? (position.speed * 1.15).toFixed(0) : (
                 <img className={classes.icon} src={mapIcons[mapIconKey(item.category)]} alt="" />
               ))}
           </Avatar>

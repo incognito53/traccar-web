@@ -43,8 +43,7 @@ export default (keyword, filter, filterSort, filterMap, positions, setFilteredDe
           if (speed2 - speed1 === 0) {
             const positionId1 = device1.positionId;
             const positionId2 = device2.positionId;
-            console.log(positionId1, device1.name);
-            console.log(positionId2, device2.name);
+d
             return positionId2 - positionId1;
           }
           return speed2 - speed1;
