@@ -89,8 +89,8 @@ const MapPositions = ({ positions, onClick, showStatus, selectedPosition, titleF
         features: [],
       },
       cluster: mapCluster,
-      clusterMaxZoom: 14,
-      clusterRadius: 50,
+      clusterMaxZoom: 16,
+      clusterRadius: 20,
     });
     map.addSource(selected, {
       type: 'geojson',

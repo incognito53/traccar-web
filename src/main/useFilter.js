@@ -40,10 +40,10 @@ export default (keyword, filter, filterSort, filterMap, positions, setFilteredDe
           const speed1 = positions[device1.id] && positions[device1.id].speed ? positions[device1.id].speed : 0;
           const speed2 = positions[device2.id] && positions[device2.id].speed ? positions[device2.id].speed : 0;
 
-          if (speed2 - speed1 < 1) {
+          if (speed2 - speed1 === 0) {
             const positionId1 = device1.positionId;
             const positionId2 = device2.positionId;
-d
+
             return positionId2 - positionId1;
           }
           return speed2 - speed1;
